@@ -49,3 +49,26 @@ gulp.task('git-check', function(done) {
   }
   done();
 });
+
+var jsFiles = [
+  'www/js/dev/myapp.js'
+]
+
+var gameFiles = [
+  'www/js/dev/game/boot.js',
+  'www/js/dev/game/preloader.js',
+  'www/js/dev/game/main.js',
+  'www/js/dev/game/game.js'
+]
+
+gulp.task('js', function () {
+  return gulp.src(jsFiles)
+    .pipe(concat('app.js'))
+    .pipe(gulp.dest('www/js'))
+})
+
+gulp.task('game', function () {
+  return gulp.src(gameFiles)
+    .pipe(concat('game.js'))
+    .pipe(gulp.dest('www/js/game'))
+})
