@@ -28,7 +28,7 @@ Clone the repo and run npm install.  Type ionic serve to run the app in a browse
 ## TODO List
 
 * Initial game mechanics
-* Add Test (Mocha & Chai)
+* Add Test (Jasmine, Karma, & angular-mocks)
 * Incorporate Phaser Framework
 * Simple art assets
 * UI/UX design
