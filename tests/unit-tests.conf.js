@@ -15,15 +15,10 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../www/js/*.js[36m',
-      '../ww/js/*.js',
+      '../www/lib/ionic/js/ionic.bundle.js',
       '../www/js/*.js',
-      '**/*Spec.js',
-      '**/*Spec.js[',
-      'tests/**/*Spec.js',
-      '**/*Spec.js',
-      '""',
-      '""'
+      '../www/js/game/game.js',
+      'unit-tests/**/*Spec.js'
     ],
 
 
