@@ -15,18 +15,18 @@ GameState.prototype.create = function () {
 
   // add a simple sky
   game.add.sprite(0, 0, 'sky')
-  levels.platforms = game.add.group()
-  levels.platforms.enableBody = true
+  level_1.platforms = game.add.group()
+  level_1.platforms.enableBody = true
 
-  var ground = levels.platforms.create(0, game.world.height - 128, 'ground')
+  level_1.ground = level_1.platforms.create(0, game.world.height - 128, 'ground')
   //scale the ground to fit the screen
-  ground.scale.setTo(2,4)
-  ground.body.immovable = true
+  level_1.ground.scale.setTo(2,4)
+  level_1.ground.body.immovable = true
 
-  var ledge = levels.platforms.create(200, 400, 'ground')
-  ledge.body.immovable = true
-  ledge = levels.platforms.create(-150, 250, 'ground')
-  ledge.body.immovable = true
+  level_1.ledge_1 = level_1.platforms.create(200, 400, 'ground')
+  level_1.ledge_1.body.immovable = true
+  level_1.ledge_2 = level_1.platforms.create(-150, 250, 'ground')
+  level_1.ledge_2.body.immovable = true
   this.game.add.sprite(0, 0, 'star')
 
 }
@@ -47,6 +47,6 @@ GameLevel.prototype.level_name = function (name) {
 GameLevel.prototype.get_level_name = function () {
   return this.name;
 }
-var levels = new GameLevel()
+var level_1 = new GameLevel()
 
 game.state.add('Game', GameState, true)
