@@ -12,11 +12,18 @@ GameState.prototype.preload = function () {
 //  Phaser Create function to instantiate all game assets.
 GameState.prototype.create = function () {
   game.physics.startSystem(Phaser.Physics.ARCADE)
-  
+
   // add a simple sky
   game.add.sprite(0, 0, 'sky')
   levels.platforms = game.add.group()
+  levels.platforms.enableBody = true
+
+  var ground = levels.platforms.create(0, game.world.height - 128, 'ground')
+  //scale the ground to fit the screen
+  ground.scale.setTo(2,2)
+
   this.game.add.sprite(0, 0, 'star')
+
 }
 
 // Phaser Update function to update game screen and progress the game.
