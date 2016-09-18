@@ -20,8 +20,13 @@ GameState.prototype.create = function () {
 
   var ground = levels.platforms.create(0, game.world.height - 128, 'ground')
   //scale the ground to fit the screen
-  ground.scale.setTo(2,2)
+  ground.scale.setTo(2,4)
+  ground.body.immovable = true
 
+  var ledge = levels.platforms.create(200, 400, 'ground')
+  ledge.body.immovable = true
+  ledge = levels.platforms.create(-150, 250, 'ground')
+  ledge.body.immovable = true
   this.game.add.sprite(0, 0, 'star')
 
 }
