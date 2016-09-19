@@ -20,7 +20,7 @@ GameState.prototype.create = function () {
 
   level_1.ground = level_1.platforms.create(0, game.world.height - 128, 'ground')
   //scale the ground to fit the screen
-  level_1.ground.scale.setTo(2,4)
+  level_1.ground.scale.setTo(2,2)
   level_1.ground.body.immovable = true
 
   level_1.ledge_1 = level_1.platforms.create(200, 400, 'ground')
