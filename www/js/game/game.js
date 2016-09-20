@@ -25,11 +25,12 @@ var GameState = {
     // right arrow
     this.rightArrow = this.game.add.sprite((this.game.world.width - 60), this.game.world.centerY, 'arrow')
     this.rightArrow.anchor.setTo(0.5)
+    this.rightArrow.customParams = {direction: 1}
     // left arrow
     this.leftArrow = this.game.add.sprite(60, this.game.world.centerY, 'arrow')
     this.leftArrow.anchor.setTo(0.5)
     this.leftArrow.scale.setTo(-1, 1)
-
+    this.leftArrow.customParams = {direction: -1}
 
   },
   // update game state loop
