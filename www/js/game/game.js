@@ -26,16 +26,29 @@ var GameState = {
     this.rightArrow = this.game.add.sprite((this.game.world.width - 60), this.game.world.centerY, 'arrow')
     this.rightArrow.anchor.setTo(0.5)
     this.rightArrow.customParams = {direction: 1}
+    this.rightArrow.inputEnabled = true
+    this.rightArrow.input.pixelPerfectClick = true
+    this.rightArrow.events.onInputDown.add(this.switchAnimal, this)
     // left arrow
     this.leftArrow = this.game.add.sprite(60, this.game.world.centerY, 'arrow')
     this.leftArrow.anchor.setTo(0.5)
     this.leftArrow.scale.setTo(-1, 1)
     this.leftArrow.customParams = {direction: -1}
 
+    this.leftArrow.inputEnabled = true
+    this.leftArrow.input.pixelPerfectClick = true
+    this.leftArrow.events.onInputDown.add(this.switchAnimal, this)
+
   },
   // update game state loop
   update: function () {
 
+  },
+  switchAnimal: function (sprite,  event) {
+    console.log('Move animal')
+  },
+  animateAnimal: function (sprite,  event) {
+    console.log('Animate animal')
   }
 }
 
