@@ -1,38 +1,46 @@
-//  Namespace for the Game Object
-function GameState (game) {
+var GameState = {
+  // preload all game assets
+  preload: function () {
+    this.load.image('background', '../../assets/images/background.png')
+    this.load.image('chicken', '../../assets/images/chicken.png')
+    this.load.image('horse', '../../assets/images/horse.png')
+    this.load.image('pig', '../../assets/images/pig.png')
+    this.load.image('sheep', '../../assets/images/sheep3.png')
+    this.load.image('arrow', '../../assets/images/arrow.png')
+  },
+  // create game objects after loading all assets
+  create: function () {
+    // set responsive scaling
+    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL
+    // center view to screen
+    this.scale.pageAlignHorizontally = true
+    this.scale.pageAlignVertically = true
+    this.background = this.game.add.sprite(0,0, 'background')
+    //  add chicken at the center of the screen
+    this.chicken = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'chicken')
+    this.chicken.anchor.setTo(0.5)
+    this.chicken.scale.setTo(-1, 1)
+
+    // add arrows
+    // right arrow
+    this.rightArrow = this.game.add.sprite((this.game.world.width - 60), this.game.world.centerY, 'arrow')
+    this.rightArrow.anchor.setTo(0.5)
+    // left arrow
+    this.leftArrow = this.game.add.sprite(60, this.game.world.centerY, 'arrow')
+    this.leftArrow.anchor.setTo(0.5)
+    this.leftArrow.scale.setTo(-1, 1)
+
+
+  },
+  // update game state loop
+  update: function () {
+
+  }
 }
 
-//  Phaser preload function to preload all game assets.
-GameState.prototype.preload = function () {
-  // load backgound image
-  this.game.load.image('background', '../../assets/images/background.png')
-}
 
-//  Phaser Create function to instantiate all game assets.
-GameState.prototype.create = function () {
-  game.physics.startSystem(Phaser.Physics.ARCADE)
-
-  // add a background
-  game.add.sprite(0,0, 'background')
-
-}
-
-// Phaser Update function to update game screen and progress the game.
-GameState.prototype.update = function () {
-
-}
 
 //  instantiate a new Phaser Game object.
 var game = new Phaser.Game(640, 360, Phaser.AUTO, 'gameView')
-
-function GameLevel () {
-}
-GameLevel.prototype.level_name = function (name) {
-  this.name = name;
-}
-GameLevel.prototype.get_level_name = function () {
-  return this.name;
-}
-var level_1 = new GameLevel()
-
-game.state.add('Game', GameState, true)
+game.state.add('GameState', GameState)
+game.state.start('GameState')
